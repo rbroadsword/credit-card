@@ -16,9 +16,9 @@ function creditCard(number) {
   })
   console.log(transformed);
 }
+//if we ask for an index that doesn't exist in an array, the return will be undefined.
 
-
-//youtube example
+//youtube example before he refactored
 function validate(n) {
   let digits = n.toString().split(" ").map(Number); 
 
