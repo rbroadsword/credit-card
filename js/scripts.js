@@ -10,5 +10,11 @@ function creditCard(number) {
     console.log(toNumbers[i]);
   } 
   console.log(doubleArray);
+  let transformed = toNumbers.map(function(number) {
+    if(toNumbers.indexOf(number) === number % 2 == 0) {
+      return number * 2; 
+    }
+  })
+  console.log(transformed);
 }
 
