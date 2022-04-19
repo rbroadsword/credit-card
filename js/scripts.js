@@ -7,7 +7,6 @@ function creditCard(number) {
   console.log(toNumbers);
   for (let i = toNumbers.length - 1; i >= 0; i-=2) { //getting everyother number r to L
     doubleArray.push(toNumbers[i]*2);
-    console.log(toNumbers[i]);
   } 
   console.log(doubleArray);
   let transformed = toNumbers.map(function(number) {
@@ -16,5 +15,26 @@ function creditCard(number) {
     }
   })
   console.log(transformed);
+}
+
+
+//youtube example
+function validate(n) {
+  let digits = n.toString().split(" ").map(Number); 
+
+  //if it's an even number
+  if(digits.length % 2 === 0){
+    digits = digits.map((digit, idx) => idx % 2 === 0 ? digit * 2 : digit); 
+  } else {
+    digits = digits.map((digit, idx) => idx % 2 === 0 ? digit * 1 : digit);
+  }
+
+  //fix the double digits
+  digits = digits.map(digit => digit > 9 ? digit - 9 : digit)
+
+  //sum the digits
+  const sum = digits.reduce((acc, digit) => acc += digit, 0);
+
+  return sum % 10 === 0; 
 }
 
