@@ -3,20 +3,44 @@ function creditCard(number) {
   const toNumbers = userInput.map(function(number){ //change userInput to array of #
     return parseInt(number);
   });
+
   const doubleArray = [] //everyother # from right to left
   console.log(toNumbers);
-  for (let i = toNumbers.length - 1; i >= 0; i-=2) { //getting everyother number r to L
-    doubleArray.push(toNumbers[i]*2);
-  } 
-  console.log(doubleArray);
-  let transformed = toNumbers.map(function(number) {
-    if(toNumbers.indexOf(number) === number % 2 == 0) {
-      return number * 2; 
+  for (let i = toNumbers.length - 1; i >= 0; i-=1) { //getting everyother number r to L
+    if(toNumbers[i] % 2 === 0) {
+          doubleArray.push(toNumbers[i]*2);
+    } else{
+      doubleArray.push(toNumbers.at(i));
     }
-  })
-  console.log(transformed);
+    console.log(doubleArray);
+    console.log(toNumbers); 
+  }
 }
+
+
+for (let i = toNumbers.length - 1; i >= 0; i-=1) { //getting everyother number r to L
+  if(toNumbers[i] % 2 === 0) {
+    doubledNumber = toNumbers[i]*2;
+    console.log(doubledNumber);
+    if(doubledNumber > 9){
+      doubledNumber = doubledNumber.split(""); 
+      sumOfTwo = doubledNumber.reduce(doubledNumber);
+      console.log(sumOfTwo); 
+      doubleArray.push(sumOfTwo);
+    }
+    
+  } else{
+    doubleArray.push(toNumbers.at(i));
+  }
+  console.log(doubleArray);
+  console.log(toNumbers); 
+}
+
+
 //if we ask for an index that doesn't exist in an array, the return will be undefined.
+
+
+
 
 //youtube example before he refactored
 function validate(n) {
@@ -38,3 +62,11 @@ function validate(n) {
   return sum % 10 === 0; 
 }
 
+const doubleArray = [] //everyother # from right to left
+console.log(toNumbers);
+for (let i = toNumbers.length - 1; i >= 0; i-=1) { //getting everyother number r to L
+  if(toNumbers[i] % 2 === 0) {
+    doubleArray.push(toNumbers[i]*2);
+  } else{
+    doubleArray.push(toNumbers.at(i));
+}
