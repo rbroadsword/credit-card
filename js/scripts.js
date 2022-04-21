@@ -1,5 +1,6 @@
 function creditCard(number) {
   let result = 0;
+  let doubledNumber = 0; 
   let userInput = number.split("");  
   const toNumbers = userInput.map(function(number){ //change userInput to array of #
     return parseInt(number);
@@ -9,14 +10,18 @@ function creditCard(number) {
   for (let i = toNumbers.length - 1; i >= 0; i-=1) { //getting everyother number r to L
     if(toNumbers[i] % 2 === 0) {
           doubledNumber = toNumbers[i]*2;
-    }else if(doubledNumber > 9){
-            doubledNumber = doubledNumber.toString().split("");
-            doubledNumber = doubledNumber.map(Number);
-            sumOfTwo = doubledNumber[0] + doubledNumber[1];
-            doubleArray.push(sumOfTwo);
-    } else{
+          doubleArray.push(toNumbers.at(i));
+    }else {
       doubleArray.push(toNumbers.at(i));
     }
+  }
+  for (let i = doubleArray.length - 1; i >= 0; i-=2) {
+    if(doubledNumber > 9){
+      doubledNumber = doubledNumber.toString().split("");
+      doubledNumber = doubledNumber.map(Number);
+      sumOfTwo = doubledNumber[0] + doubledNumber[1];
+      doubleArray.push(sumOfTwo);
+  }
   }
   result = doubleArray.reduce(function summarize(sum, number, index) {
       return sum + number; 
@@ -26,6 +31,8 @@ function creditCard(number) {
   } else {
     console.log("not valid");
   }
+  console.log(doubleArray);
+  console.log(result);
 }
 
 function double(number) {
